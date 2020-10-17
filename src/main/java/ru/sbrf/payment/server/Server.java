@@ -34,5 +34,6 @@ public class Server implements MakeAPayment {
         //Выполняем какую-то логику по проведению платежа - например уменьшаем баланс счета с которого осуществляется платеж
         payment.getUser().getUserAccount().setAmount(payment.getUser().getUserAccount().getAmount() - payment.getAmount());
         //тут можно было красивее - возможно сохранять ссылку на счет в платеже?
+        System.out.println("Платеж проведен. Остаток на счете: " + payment.getUser().getUserAccount().getAmount() / 100);
     }
 }
