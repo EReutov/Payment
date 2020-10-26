@@ -4,6 +4,6 @@ import ru.sbrf.payment.client.User;
 
 public interface Pay {
 
-    public void pay(User user) throws Exception;
+    public void pay(User user);
 
 }
