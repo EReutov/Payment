@@ -1,5 +1,7 @@
 package ru.sbrf.payment;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import ru.sbrf.payment.application.Application;
 import ru.sbrf.payment.client.User;
 import ru.sbrf.payment.common.Currency;
@@ -16,9 +18,12 @@ public class Main {
 It is highly recommended to fix these problems because they threaten the stability of your build.
 For this reason, future Maven versions might no longer support building such malformed projects.
         */
+        ApplicationContext context =
+                new AnnotationConfigApplicationContext("ru.sbrf.payment.application");
+
+        Application app = context.getBean(Application.class);
 
         User userToPay = new User(new PhoneRUS("+79002066899"), new Account("40817810570000123456", Currency.RUB, 30000));
-        Application app = new Application();
         Server server = new Server();
 
         app.pay(userToPay);

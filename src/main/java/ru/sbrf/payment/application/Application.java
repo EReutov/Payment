@@ -3,6 +3,7 @@ package ru.sbrf.payment.application;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.stereotype.Component;
 import ru.sbrf.payment.application.Validation.AccountValidation;
 import ru.sbrf.payment.application.Validation.PhoneNumberValidation;
 import ru.sbrf.payment.client.User;
@@ -21,6 +22,7 @@ import java.util.Scanner;
 @NoArgsConstructor
 @Getter
 
+@Component
 public class Application implements Pay {
     private Payment payment;
 
