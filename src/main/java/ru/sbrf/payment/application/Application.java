@@ -42,9 +42,12 @@ public class Application implements Pay {
             if (number.startsWith("+375")) phoneNumberToPay = new PhoneBLR(number);
             if (number.startsWith("+7")) phoneNumberToPay = new PhoneRUS(number);
 
-            PhoneNumberValidation phoneNumberValidation = new PhoneNumberValidation(phoneNumberToPay);
+            PhoneNumberValidation PhoneNumberValidation = new PhoneNumberValidation(phoneNumberToPay);
 
-            phoneNumberValidation.checkPhoneNumber();
+            //phoneNumberValidation.checkPhoneNumber(phoneNumberValidation.getPhoneNumber() -> !phoneNumberValidation.getPhoneNumber().getNumber().startsWith(phoneNumberValidation.getPhoneNumber().getPREFIX()) || phoneNumberValidation.getPhoneNumber().getNumber().length() != phoneNumberValidation.getPhoneNumber().getLENGTH());
+            //phoneNumberValidation.checkPhoneNumber(phoneNumberToPay);
+            PhoneNumberValidation.checkPhoneNumber(phoneNumber -> !phoneNumber.getNumber().startsWith(phoneNumber.getPREFIX()) || phoneNumber.getNumber().length() != phoneNumber.getLENGTH());
+
             //номер счета пока что получаем из пользователя (Реализовывать ли выбор из нескольких счетов относящихся к пользователю?)
             accountToPay = userToPay.getUserAccount();
 
